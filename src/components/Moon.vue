@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="moon text-center">
     <img
       src="../assets/moon3.jpg"
       height="400"

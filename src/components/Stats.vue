@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="stats mx-auto">
     <h3 class="text-info text-center">STATS</h3>
     <div class="border p-4">
       <div>

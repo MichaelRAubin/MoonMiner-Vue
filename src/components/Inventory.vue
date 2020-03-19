@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="inventory">
     <div class="row">
       <div class="col-12">
         <h3 class="text-warning mb-3 ml-5">INVENTORY</h3>

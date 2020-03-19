@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="depot mx-auto">
     <h3 class="text-success text-center">MOON DEPOT</h3>
     <p class="text-secondary">Dynamically place depot items to buy here</p>
     <div class="border p-2 mb-2 bg-black text-lght img-fluid">
