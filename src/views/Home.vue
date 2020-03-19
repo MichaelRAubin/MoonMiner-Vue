@@ -1,18 +1,49 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container-fluid">
+      <div class="row mb-3">
+        <h1 class="text-warning m-auto">MOON MINER</h1>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <Inventory />
+        </div>
+        <div class="col-6">
+          <Moon />
+        </div>
+        <div class="col-3">
+          <div class="row h-75">
+            <Depot />
+          </div>
+          <div class="row text-center">
+            <Stats />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Moon from "../components/Moon";
+import Inventory from "../components/Inventory";
+import Depot from "../components/Depot";
+import Stats from "../components/Stats";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    Moon,
+    Inventory,
+    Depot,
+    Stats
   }
-}
+};
 </script>
+<style>
+.home {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
+</style>
