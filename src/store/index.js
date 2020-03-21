@@ -7,51 +7,77 @@ export default new Vuex.Store({
   state: {
     availCheese: 0,
     totalCheese: 0,
+    cheeseTime: 0,
 
-    mUpgrades: [{
+    upGrades: [{
+      id: "100",
       name: "Pickaxe",
-      price: 10,
+      price: 5,
       quantity: 0,
       multiplier: 1,
-      img: "miner.png"
+      img: "miner.png",
+      auto: false
     },
+
     {
       name: "Drill",
-      price: 20,
+      id: "200",
+      price: 10,
       quantity: 0,
       multiplier: 5,
-      img: "drill.png"
+      img: "drill.png",
+      auto: false
     },
+
     {
       name: "Dynamite",
-      price: 30,
+      id: "300",
+      price: 20,
       quantity: 0,
       multiplier: 10,
-      img: "dynamite.png"
-    }],
+      img: "dynamite.png",
+      auto: false
+    },
 
-    aUpgrades: [
-      {
-        name: "Dozer",
-        price: 50,
-        quantity: 0,
-        multiplier: 20,
-        img: "bulldozer.png"
-      }],
+    {
+      name: "Dozer",
+      id: "400",
+      price: 30,
+      quantity: 0,
+      multiplier: 20,
+      img: "bulldozer.png",
+      auto: true
+    }
+    ],
 
-    inventory: []
-
+    cart: {
+      items: []
+    }
   },
 
   mutations: {
-
+    updateQuantity(state, { upGrade, quantity, price }) {
+      upGrade.quantity = quantity;
+      upGrade.price = price;
+    }
   },
 
   actions: {
     mine({ dispatch, commit, state }) {
       state.availCheese++
       state.totalCheese++
-    }
-  }
+    },
 
+    async addUpGrade({ dispatch, commit, state }, upGrade) {
+      let found = state.upGrades.find(i => i.id == upGrade.id);
+      if (found) {
+        upGrade.quantity++;
+        upGrade.price *= 2;
+        commit("updateQuantity", { upGrade: found, quantity: upGrade.quantity, price: upGrade.price });
+      } else {
+        return
+      }
+
+    },
+  }
 })
