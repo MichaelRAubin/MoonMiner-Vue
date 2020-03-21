@@ -1,12 +1,14 @@
 <template>
-  <div class="moon text-center">
-    <img
-      src="../assets/moon3.jpg"
-      height="400"
-      width="400"
-      class="img-fluid img-pointer"
-      @click="collect"
-    />
+  <div class="moon">
+    <div class="text-center">
+      <img
+        src="../assets/moon3.jpg"
+        height="400"
+        width="400"
+        class="img-fluid img-pointer"
+        @click="mine"
+      />
+    </div>
   </div>
 </template>
 
@@ -14,7 +16,8 @@
 export default {
   name: "Moon",
   methods: {
-    collect() {
+    mine() {
+      this.$store.dispatch("mine");
       console.log("collecting");
     }
   }

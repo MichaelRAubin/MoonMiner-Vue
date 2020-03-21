@@ -4,11 +4,11 @@
     <div class="border p-4">
       <div>
         <img src="../assets/cheese-wedge.png" height="30" width="30" class="img-fluid mr-3 mb-2" />
-        <span class="badge badge-warning">Total Cheese: 0</span>
+        <span class="badge badge-warning">Total Cheese: {{$store.state.totalCheese}}</span>
       </div>
       <div>
         <img src="../assets/cheese-wedge.png" height="30" width="30" class="img-fluid mr-3 mb-2" />
-        <span class="badge badge-warning">Avail Cheese: 0</span>
+        <span class="badge badge-warning">Avail Cheese: {{$store.state.availCheese}}</span>
       </div>
       <div>
         <img src="../assets/cheese-wedge.png" height="30" width="30" class="img-fluid mr-4 mb-2" />
@@ -19,8 +19,17 @@
 </template>
 
 <script>
+import Moon from "../components/Moon";
 export default {
-  name: "Stats"
+  name: "Stats",
+  computed: {
+    availCount() {
+      return this.$store.state.availCheese;
+    },
+    totalCount() {
+      return this.$store.state.totalCheese;
+    }
+  }
 };
 </script>
 

@@ -5,38 +5,53 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    cheese: 0,
-    upgrades: [{
-      pickaxe: {
-        price: 10,
-        quantity: 0,
-        multiplier: 1,
-        img: "../assets/miner.png"
-      },
-      drill: {
-        price: 20,
-        quantity: 0,
-        multiplier: 5,
-        img: "../assets/drill.png"
-      },
-      dynamite: {
-        price: 30,
-        quantity: 0,
-        multiplier: 10,
-        img: "../assets/dynamite.png"
-      },
-      dozer: {
+    availCheese: 0,
+    totalCheese: 0,
+
+    mUpgrades: [{
+      name: "Pickaxe",
+      price: 10,
+      quantity: 0,
+      multiplier: 1,
+      img: "miner.png"
+    },
+    {
+      name: "Drill",
+      price: 20,
+      quantity: 0,
+      multiplier: 5,
+      img: "drill.png"
+    },
+    {
+      name: "Dynamite",
+      price: 30,
+      quantity: 0,
+      multiplier: 10,
+      img: "dynamite.png"
+    }],
+
+    aUpgrades: [
+      {
+        name: "Dozer",
         price: 50,
         quantity: 0,
         multiplier: 20,
-        img: "../assets/bulldozer.png"
-      },
-    }]
+        img: "bulldozer.png"
+      }],
+
+    inventory: []
+
   },
+
   mutations: {
+
   },
+
   actions: {
-  },
-  modules: {
+    mine({ dispatch, commit, state }) {
+      state.availCheese++
+      state.totalCheese++
+    }
   }
+
 })
