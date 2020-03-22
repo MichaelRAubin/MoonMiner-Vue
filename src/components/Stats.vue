@@ -12,7 +12,7 @@
       </div>
       <div>
         <img src="../assets/cheese-wedge.png" height="30" width="30" class="img-fluid mr-4 mb-2" />
-        <span class="badge badge-warning">Cheese/Sec: 0</span>
+        <span class="badge badge-warning">Cheese/Click: {{$store.state.totalModifier}}</span>
       </div>
     </div>
   </div>

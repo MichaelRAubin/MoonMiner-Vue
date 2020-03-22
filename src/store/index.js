@@ -15,7 +15,7 @@ export default new Vuex.Store({
       name: "Pickaxe",
       price: 10,
       quantity: 0,
-      modifier: 1,
+      modifier: 5,
       img: "miner.png",
       auto: false
     },
@@ -25,7 +25,7 @@ export default new Vuex.Store({
       id: "200",
       price: 50,
       quantity: 0,
-      modifier: 5,
+      modifier: 10,
       img: "drill.png",
       auto: false
     },
@@ -35,7 +35,7 @@ export default new Vuex.Store({
       id: "300",
       price: 100,
       quantity: 0,
-      modifier: 10,
+      modifier: 30,
       img: "dynamite.png",
       auto: false
     },
@@ -45,7 +45,7 @@ export default new Vuex.Store({
       id: "400",
       price: 1000,
       quantity: 0,
-      modifier: 20,
+      modifier: 50,
       img: "bulldozer.png",
       auto: false
     }
@@ -58,16 +58,16 @@ export default new Vuex.Store({
       upGrade.price = price;
     },
     updateCheese(state) {
-
+      state.availCheese += state.totalModifier
+      state.totalCheese += state.totalModifier
+      state.availCheese++
+      state.totalCheese++
     }
   },
 
   actions: {
     async mine({ dispatch, commit, state }) {
-      state.availCheese += state.totalModifier
-      state.totalCheese += state.totalModifier
-      state.availCheese++
-      state.totalCheese++
+      commit("updateCheese")
     },
     async addUpGrade({ dispatch, commit, state }, upGrade) {
       let found = state.upGrades.find(i => i.id == upGrade.id);

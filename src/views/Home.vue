@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container-fluid">
-      <div class="row h-50 mb-3">
+      <div class="row mb-3">
         <h1 class="text-warning m-auto">MOON MINER</h1>
       </div>
       <div class="row">
@@ -12,7 +12,7 @@
           <Moon />
         </div>
         <div class="col-3">
-          <div class="row h-50">
+          <div class="row h-75">
             <Depot />
           </div>
           <div class="row text-center">
@@ -43,6 +43,8 @@ export default {
 
 <style>
 .home {
+  height: 100vh;
+  width: 100vw;
   background-color: black;
 }
 </style>
