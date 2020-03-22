@@ -1,7 +1,7 @@
 <template>
   <div class="depot mx-auto">
     <h3 class="text-success text-center">MOON DEPOT</h3>
-    <h5 class="text-light text-center">Upgrades</h5>
+    <h5 class="text-info text-center">UPGRADES</h5>
     <Tool />
   </div>
 </template>
