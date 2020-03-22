@@ -9,6 +9,7 @@ export default new Vuex.Store({
     totalCheese: 0,
     cheeseTime: 0,
     totalModifier: 0,
+    autoFlag: false,
 
     upGrades: [{
       id: "100",
@@ -77,21 +78,28 @@ export default new Vuex.Store({
         state.totalModifier += (upGrade.modifier + upGrade.quantity);
         upGrade.price *= 2;
         commit("updateQuantity", { upGrade: found, quantity: upGrade.quantity, price: upGrade.price, modifier: upGrade.modifier });
-      } else {
+      }
+      if (found.auto == true) {
+        this.startInterval()
+      }
+      else {
         return
       }
     },
     //TODO need to complete
-    async startInterval({ dispatch, commit, state }) {
-      let collectAutoUpgrades
-      let collectionInterval = setInterval(collectAutoUpgrades, 3000)
-      return collectionInterval
+    async startInterval() {
+      if (this.state.autoFlag) {
+        this.state.autoFlag = true
+        let collectionInterval = setInterval(autoCheese, 3000)
+        return collectionInterval
+      }
+      else {
+        return
+      }
     },
     //TODO need to complete
-    async collectAutoUpgrades({ dispatch, commit, state }, upGrade) {
-      let found = state.upGrades.find(i => i.name == upGrade.name)
-      if (found.name = "dozer") {
-      }
+    async autoCheese({ dispatch, commit, state }) {
+      commit("updateCheese")
     },
   }
 })
