@@ -47,7 +47,7 @@ export default new Vuex.Store({
       quantity: 0,
       modifier: 50,
       img: "bulldozer.png",
-      auto: false
+      auto: true
     }
     ]
   },
