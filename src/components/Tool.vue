@@ -2,7 +2,7 @@
   <div class="tool">
     <div v-for="upGrade in upGrades" :key="upGrade.id" class="upGrades">
       <div
-        v-show="upGrade.price < $store.state.availCheese"
+        v-show="upGrade.price <= $store.state.availCheese"
         class="border p-2 mb-2 bg-black text-lght img-fluid"
       >
         <div class="d-flex align-items-center justify-content-between">

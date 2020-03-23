@@ -36,7 +36,7 @@ export default new Vuex.Store({
       id: "300",
       price: 100,
       quantity: 0,
-      modifier: 30,
+      modifier: 50,
       img: "dynamite.png",
       auto: false
     },
@@ -46,7 +46,7 @@ export default new Vuex.Store({
       id: "400",
       price: 1000,
       quantity: 0,
-      modifier: 50,
+      modifier: 200,
       img: "bulldozer.png",
       auto: true
     }
@@ -75,7 +75,7 @@ export default new Vuex.Store({
       if (found) {
         upGrade.quantity++;
         state.availCheese -= upGrade.price;
-        state.totalModifier += (upGrade.modifier + upGrade.quantity);
+        state.totalModifier += upGrade.modifier;
         upGrade.price *= 2;
         commit("updateQuantity", { upGrade: found, quantity: upGrade.quantity, price: upGrade.price, modifier: upGrade.modifier });
       }

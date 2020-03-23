@@ -27,7 +27,7 @@
           width="30"
           class="img-fluid mr-3 mt-1 mb-1"
         />
-        <span class="badge badge-warning">Cheese/Click: {{$store.state.totalModifier}}</span>
+        <span class="badge badge-warning">Total Modifier: {{$store.state.totalModifier}}</span>
       </div>
     </div>
   </div>
