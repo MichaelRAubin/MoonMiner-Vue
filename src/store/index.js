@@ -79,27 +79,19 @@ export default new Vuex.Store({
         upGrade.price *= 2;
         commit("updateQuantity", { upGrade: found, quantity: upGrade.quantity, price: upGrade.price, modifier: upGrade.modifier });
       }
+      else {
+        return
+      }
+    },
+    async autoCheese({ dispatch, commit, state }, upGrade) {
+      let found = state.upGrades.find(a => a.auto == upGrade.auto);
       if (found.auto == true) {
-        this.startInterval()
+        state.autoFlag = true
+        commit("updateCheese")
       }
       else {
         return
       }
-    },
-    //TODO need to complete
-    async startInterval() {
-      if (this.state.autoFlag) {
-        this.state.autoFlag = true
-        let collectionInterval = setInterval(autoCheese, 3000)
-        return collectionInterval
-      }
-      else {
-        return
-      }
-    },
-    //TODO need to complete
-    async autoCheese({ dispatch, commit, state }) {
-      commit("updateCheese")
-    },
+    }
   }
 })

@@ -27,6 +27,11 @@
 <script>
 export default {
   name: "Tool",
+  data() {
+    return {
+      auto: null
+    };
+  },
   props: {
     upGrade: { type: Object }
   },
@@ -38,6 +43,12 @@ export default {
   methods: {
     addUpGrade(upGrade) {
       this.$store.dispatch("addUpGrade", upGrade);
+      if (upGrade.auto == true) {
+        clearInterval(this.auto);
+      }
+      this.auto = setInterval(() => {
+        this.$store.dispatch("autoCheese", upGrade);
+      }, 3000);
     }
   }
 };
